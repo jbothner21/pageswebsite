@@ -9,3 +9,15 @@ function smoothScroll(event) {
       behavior: "smooth"
     });
   }
+
+  function checkForm(){
+    if(!document.getElementById("g-recaptcha-response").value){
+      $('.validate').show();
+          return false;
+      }
+      else {
+        $('.validate').hide(); // Hide the .validate element
+        document.getElementById("buttoncontact").type = "submit";
+        return true;
+      }
+    }

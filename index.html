@@ -182,7 +182,7 @@
         </script>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="showSuccessMessage(); clearForm();"></iframe>
         <div class="form-pos border-space">
-            <form id="form" class="form" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLScnx3Zz4riO3HM2-koT8ifctR5hZ0k5mK8iuMmWsAef8fJf6A/formResponse" method="post" target="hidden_iframe">
+            <form id="form" class="form" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLScnx3Zz4riO3HM2-koT8ifctR5hZ0k5mK8iuMmWsAef8fJf6A/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
                 <div class="table">
                     <div class="cell">
                         <input class="form-control" name="entry.518261848" type="text" placeholder="Name" />
@@ -194,9 +194,16 @@
                 <div class="table">
                     <textarea class="form-control message" name="entry.1101173355" type="text" cols="30" rows="7" style="resize:none" placeholder="Type a message"></textarea>
                 </div>
-                <div id="success-message" style="display:none; color: #00BC09;">Your message was sent!</div>
-                <div class="table-space">
-                    <input class="button" type="submit" value="Submit" />
+                <div>
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+                    <div class="g-recaptcha table-space" data-sitekey="6LegPSgnAAAAAN33K9Fk_imNdti_xd_ckUc4Azd4"></div>
+                    <div class="validate table-space">
+                        Please validate the captcha field before submitting.
+                    </div>
+                    <div class="table-space">
+                        <input class="button" id="buttoncontact" type="submit" value="Submit" onclick="return checkForm();"></input>
+                    </div>
+                    <div id="success-message" style="display:none; color: #00BC09;">Your message was sent!</div>
                 </div>
             </form>
         </div>
